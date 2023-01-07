@@ -14,12 +14,13 @@ const Home = () => {
          <div className="row">
            {productsArr.map((item, index) => {
               return(
-                
-                  <Cards title={item.title} img={item.imageUrl} price={item.price} key={index} />
-                
+                    
+                 <Cards title={item.title} img={item.imageUrl} price={item.price} key={index} />
+                 
               )
               
            })}
+
            
          </div>
          <div className="text-center font-weight-bold class pt-3">

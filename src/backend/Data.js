@@ -1,3 +1,5 @@
+
+
 const productsArr = [
 
   {
@@ -41,6 +43,7 @@ const productsArr = [
   }
   
   ]
-  
+
+ 
   export default productsArr;
   

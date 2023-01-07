@@ -1,0 +1,14 @@
+.cartlist {
+  overflow: auto;
+  display: flex;
+}
+.image {
+  width: 80px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+}
+.headings {
+  
+ display: flex;
+}
