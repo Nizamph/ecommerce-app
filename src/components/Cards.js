@@ -1,6 +1,23 @@
+import  React , {useContext} from 'react'
+import CartContext from '../Store/cart-context';
+import { Card} from 'react-bootstrap';
 
-import { Card,Button } from 'react-bootstrap';
 function Cards(props) {
+
+  const cartCtx = useContext(CartContext)
+
+  const addItemToCart = (event) => {
+     event.preventDefault()
+    cartCtx.addItem({
+      id:props.id,
+      title:props.title,
+      imageUrl:props.img,
+      price:props.price,
+      quantity:props.quantity
+    })
+   console.log('inside item',cartCtx.items)
+  }
+
   return (
     <>
     <div className='col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-6 col-xxl-2 mb-5'>
@@ -12,14 +29,13 @@ function Cards(props) {
           <Card.Body>
             <Card.Text>
               {`$${props.price}`}
-              {console.log('this is card price',props.price)}
             </Card.Text>
-            <Button variant='dark' className='border-primary border border-2'>Add to cart</Button>
+            <button onClick={addItemToCart} variant='dark' className='border-primary border border-2'>Add to cart</button>
           </Card.Body>
        </Card>
     </div>
     </>
-
+  
   );
 }
 

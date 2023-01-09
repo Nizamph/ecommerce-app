@@ -1,8 +1,7 @@
 import Cards from "../components/Cards"
-import productsArr from "../backend/Data"
 import { Button } from "react-bootstrap"
 import {BsYoutube,BsSpotify,BsFacebook } from "react-icons/bs";
-const Home = () => {
+const Home = (props) => {
   return (
     <>
     <div>
@@ -12,19 +11,22 @@ const Home = () => {
     <div  className="container-fluid">
        <div className="container py-4">
          <div className="row">
-           {productsArr.map((item, index) => {
-              return(
-                    
-                 <Cards title={item.title} img={item.imageUrl} price={item.price} key={index} />
-                 
-              )
-              
-           })}
-
+         {props.products.map((item) => {
+    return(
+      <Cards
+       id={item.id}
+       title={item.title}
+       img={item.imageUrl}  
+       price={item.price}
+       quantity={item.quantity}
+      /> 
+    )
+     
+   })} 
            
          </div>
          <div className="text-center font-weight-bold class pt-3">
-  <Button type="onsubmit" className="bg-dark p-3 border-primary border border-2 mb-1 shadow" style={{backgroundColor:"#777",color:"#56CCF2",}}><strong>See the cart</strong></Button>
+  <Button onClick={props.onShowCart} className="bg-dark p-3 border-primary border border-2 mb-1 shadow" style={{backgroundColor:"#777",color:"#56CCF2",}}><strong>See the cart</strong></Button>
          </div>  
        </div>
     </div>
