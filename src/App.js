@@ -2,10 +2,9 @@ import Home from "./pages/Home";
 import Cart from "./components/cart/Cart";
 import Navigation from "./components/Navbar";
 import CartProvider from "./Store/CartProvider";
-import Cards from "./components/Cards";
 import {useState} from 'react'
-
-
+import About from "./pages/About";
+import { Route } from 'react-router-dom'
 
 function App() {
   const productsArr = [
@@ -74,11 +73,19 @@ function App() {
       setShowCart(false)
     }
   return (
+    <div>
+      
     <CartProvider>
     <Navigation onShowCart={showCartHandler}/> 
+    <Route path="/About">
+      <About/>
+     </Route>
+     <Route path="/Home">
+     <Home onShowCart={showCartHandler} products={productsArr} />
+     </Route>
     {cartIsShown && <Cart onhideCart={hideCartHandler} products={productsArr}/>}
-   <Home onShowCart={showCartHandler} products={productsArr} />
     </CartProvider>
+    </div>
   );
 }
 

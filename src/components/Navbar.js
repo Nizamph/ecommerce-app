@@ -4,7 +4,7 @@ import CartContext from '../Store/cart-context';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-
+import { NavLink } from 'react-router-dom';
 
 function Navigation(props) {
   const cartCtx = useContext(CartContext)
@@ -20,9 +20,9 @@ function Navigation(props) {
         <Navbar.Toggle aria-controls="basic-navbar-nav"/>
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="navbar-nav mx-auto navbar-brand">
-            <Nav.Link href="#home" className="nav-item nav-link px-4 " >Home</Nav.Link>
+            <NavLink to="/Home" className="nav-item nav-link px-4 " >Home</NavLink>
             <Nav.Link href="#store" className="nav-item nav-link px-4" >Store</Nav.Link>
-            <Nav.Link href="#link" className="nav-item nav-link px-4" >About</Nav.Link>
+            <NavLink to="/About" className="nav-item nav-link px-4" style={{ColorChange:"white"}} >About</NavLink>
            
           </Nav>
           <button onClick={props.onShowCart} className="btn btn-secondary btn-lg active navbar-nav nav-link px-4 border-primary border border-3 text-primary"  >Cart</button> 
