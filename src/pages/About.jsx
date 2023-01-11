@@ -4,7 +4,7 @@ import { BsYoutube,BsFacebook,BsSpotify } from 'react-icons/bs'
 function About() {
   return (
     <React.Fragment>
-    <div className='row'>
+    <div className='row' >
     
       <h1 style={{backgroundColor:"grey",fontSize:"100px",color:"dark",marginTop:"45px"}} className='p-4 text-center shadow '>The Generics</h1>
       <div>
@@ -12,7 +12,7 @@ function About() {
       </div>
 
     <section>
-      <div >
+      <div>
       <div className='col-xl-12 text-center'>
         <img className='img' src='https://prasadyash2411.github.io/ecom-website/img/Band%20Members.png' alt='band pic'/>
          <p className='p'>
@@ -32,7 +32,7 @@ function About() {
       </div>
       </section>
 
-    <footer className="bg-dark p-1">
+    <footer className="bg-dark p-1" >
    
    <div className="text-center ">
     

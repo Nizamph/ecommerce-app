@@ -1,0 +1,71 @@
+.upper-portion {
+
+  padding-bottom:25p
+}
+.play-music {
+  background-color:inherit;
+  border-style: solid;
+  border-width: 2px;
+  display: block;
+  margin: 10px auto;
+  padding: 15px 30px;
+  border-color: #56CCF2;
+  color: white;
+  font-size: large;
+  font-size:x-large
+}
+.header {
+  background-color: gray;
+  padding-bottom: 40px;
+}
+.play-button{
+  cursor: pointer;
+  display: block;
+  border: 2px solid #56CCF2;
+  border-radius: 50%;
+  padding-left: 21px;
+  padding-right: 21px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  font-size: 38px;
+  font-weight: 200;
+  margin: 20px auto;
+  background:inherit;
+  color: #56CCF2;
+}
+
+.Tours{
+  text-align: center;
+  margin-top: 35px;
+}
+
+.tour-item {
+  display: flex;
+  border-bottom: 1px solid black;
+  padding: 10px;
+  
+
+}
+
+.tour-date {
+  width: 12%;
+}
+
+.tour-place {
+  width: 25%;
+  color: #777;
+}
+
+.buy-btn {
+  width: 20%;
+  background: #56CCF2;
+  color: white;
+  border: none;
+  padding: 4px;
+  border-radius: 5px;
+  font-weight: 700;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin-left: auto;
+ 
+}
+

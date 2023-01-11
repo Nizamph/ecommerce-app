@@ -21,7 +21,7 @@ function Navigation(props) {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="navbar-nav mx-auto navbar-brand">
             <NavLink to="/Home" className="nav-item nav-link px-4 " >Home</NavLink>
-            <Nav.Link href="#store" className="nav-item nav-link px-4" >Store</Nav.Link>
+            <NavLink to="/Store" className="nav-item nav-link px-4" >Store</NavLink>
             <NavLink to="/About" className="nav-item nav-link px-4" style={{ColorChange:"white"}} >About</NavLink>
            
           </Nav>

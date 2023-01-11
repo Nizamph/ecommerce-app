@@ -1,74 +1,94 @@
-import Cards from "../components/Cards"
-import { Button } from "react-bootstrap"
-import {BsYoutube,BsSpotify,BsFacebook } from "react-icons/bs";
-const Home = (props) => {
+import React from 'react'
+import { BsYoutube,BsSpotify,BsFacebook } from 'react-icons/bs'
+import { Container } from 'react-bootstrap'
+import './Home.css'
+const  Home = () => {
   return (
-    <>
-    <div>
-    <h1 style={{backgroundColor:"grey",fontSize:"100px",color:"dark",marginTop:"45px"}} className='p-4 text-center shadow '>The Generics</h1>
-    <h1 className="text-center pt-5 pb-3" style={{fontFamily: "Metal Mania",fontSize:"70px"}}>Music</h1>
-    </div>
-    <div  className="container-fluid">
-       <div className="container py-4">
-         <div className="row">
-         {props.products.map((item) => {
-    return(
-      <Cards
-       id={item.id}
-       title={item.title}
-       img={item.imageUrl}  
-       price={item.price}
-       quantity={item.quantity}
-      /> 
-    )
-     
-   })} 
-           
-         </div>
-         <div className="text-center font-weight-bold class pt-3">
-  <Button onClick={props.onShowCart} className="bg-dark p-3 border-primary border border-2 mb-1 shadow" style={{backgroundColor:"#777",color:"#56CCF2",}}><strong>See the cart</strong></Button>
-         </div>  
-       </div>
-    </div>
-    <div className="col-lg-12"> 
-   <footer className="bg-dark p-1">
-   
-    <div className="text-center ">
-     
-          
-          <h1 className="text-white" style={{fontFamily:"monospace"}} ><strong>The Generics</strong></h1>
-          
-         
-         
-       
-        <div className="me-5">
-        <a href="https://www.youtube.com/" style={{fontSize:"20px"}} >
-         <BsYoutube className="text-danger ms-5 fa-4x" />
-         </a>
-         
-         
-         <a href="https://www.facebook.com/">
-         <BsFacebook className="text-white ms-5" style={{fontSize:"20px"}}/>
-         </a>
-       
-       
-         <a href="https://www.spotify.com/">
-         <BsSpotify className="text-success ms-5" style={{fontSize:"20px"}}/>
-         </a>
-        </div>
-      
-   
- 
-    </div>
-
-   
-
-      
-   </footer>
-   </div>
-    </>
+   <div>
+    <header className='header'>
     
+      <h1 style={{fontSize:"100px",color:"dark",marginTop:"45px"}} className='p-4 text-center '>The Generics</h1>
+        <button className='play-music'>Get Our Latest Album</button>
+        <button class="play-button">►</button>
+    </header>
+    
+    <Container className=' col-12' style={{padding:"80px"}}>
+    <section>
+    <h2 className='text-center pb-4 ' style={{fontFamily:"serif"}}>TOURS</h2>
+            <div class="tour-item ">
+                <span class="tour-date">JUL16</span>
+                <span class="tour-place">DETROIT, MI</span>
+                <span class="tour-spec-place">DTE ENERGY MUSIC THEATRE</span>
+                <button class="buy-btn">BUY TICKETS</button>
+            </div>
+            <div class="tour-item">
+                <span class="tour-date">JUL19</span>
+                <span class="tour-place">
+TORONTO,ON</span>
+                <span class="tour-spec-place">BUDWEISER STAGE</span>
+                <button class="buy-btn">BUY TICKETS</button>
+            </div>
+            <div class="tour-item">
+                <span class="tour-date">JUL 22</span>
+                <span class="tour-place">BRISTOW, VA</span>
+                <span class="tour-spec-place">
+JIGGY LUBE LIVE</span>
+                <button class="buy-btn">BUY TICKETS</button>
+            </div>
+            <div class="tour-item">
+                <span class="tour-date">JUL 29</span>
+                <span class="tour-place">PHOENIX, AZ</span>
+                <span class="tour-spec-place">AK-CHIN PAVILION</span>
+                <button class="buy-btn">BUY TICKETS</button>
+            </div>
+            <div class="tour-item">
+                <span class="tour-date">AUG 2</span>
+                <span class="tour-place">
+LAS VEGAS, NV</span>
+                <span class="tour-spec-place">
+T-MOBILE ARENA</span>
+                <button class="buy-btn">BUY TICKETS</button>
+            </div>
+            <div class="tour-item">
+                <span class="tour-date">AUG 7</span>
+                <span class="tour-place">CONCORD, CA</span>
+                <span class="tour-spec-place">CONCORD PAVILION</span>
+                <button class="buy-btn">BUY TICKETS</button>
+            </div>
+    </section>
+    </Container>
+    <footer className="bg-dark p-1" >
+   
+   <div className="text-center ">
+    
+         
+         <h1 className="text-white" style={{fontFamily:"monospace"}} ><strong>The Generics</strong></h1>
+         
+        
+        
+      
+       <div className="me-5">
+       <a href="https://www.youtube.com/" style={{fontSize:"20px"}} >
+        <BsYoutube className="text-danger ms-5 fa-4x" />
+        </a>
+        
+        
+        <a href="https://www.facebook.com/">
+        <BsFacebook className="text-white ms-5" style={{fontSize:"20px"}}/>
+        </a>
+      
+      
+        <a href="https://www.spotify.com/">
+        <BsSpotify className="text-success ms-5" style={{fontSize:"20px"}}/>
+        </a>
+       </div>
+    
+   </div>
+     
+  </footer>
+   </div>
+   
   )
 }
 
-export default Home 
+export default Home

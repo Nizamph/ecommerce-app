@@ -5,6 +5,7 @@ import CartProvider from "./Store/CartProvider";
 import {useState} from 'react'
 import About from "./pages/About";
 import { Route } from 'react-router-dom'
+import Store from "./pages/Store";
 
 function App() {
   const productsArr = [
@@ -80,8 +81,11 @@ function App() {
     <Route path="/About">
       <About/>
      </Route>
+     <Route path="/Store">
+     <Store onShowCart={showCartHandler} products={productsArr} />
+     </Route>
      <Route path="/Home">
-     <Home onShowCart={showCartHandler} products={productsArr} />
+      <Home/>
      </Route>
     {cartIsShown && <Cart onhideCart={hideCartHandler} products={productsArr}/>}
     </CartProvider>
