@@ -6,6 +6,7 @@ import {useState} from 'react'
 import About from "./pages/About";
 import { Route } from 'react-router-dom'
 import Store from "./pages/Store";
+import ContactUs from "./pages/ContactUs";
 
 function App() {
   const productsArr = [
@@ -73,6 +74,18 @@ function App() {
     const hideCartHandler = () => {
       setShowCart(false)
     }
+
+    const contactList = async (contactData) => {
+       const response = await fetch('https://ecommerce-app-90fa8-default-rtdb.firebaseio.com/contactinfo.json',{
+        method:"POST",
+        body:JSON.stringify(contactData),
+        headers:{
+          'Content-Type':'application/json'
+        }
+       })
+       const data = await response.json()
+       console.log(data)
+    }
   return (
     <div>
       
@@ -86,6 +99,9 @@ function App() {
      </Route>
      <Route path="/Home">
       <Home/>
+     </Route>
+     <Route path="/ContactUs">
+      <ContactUs onContactList={contactList}/>
      </Route>
     {cartIsShown && <Cart onhideCart={hideCartHandler} products={productsArr}/>}
     </CartProvider>

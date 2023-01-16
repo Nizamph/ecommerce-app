@@ -23,11 +23,11 @@ function Navigation(props) {
             <NavLink to="/Home" className="nav-item nav-link px-4 " >Home</NavLink>
             <NavLink to="/Store" className="nav-item nav-link px-4" >Store</NavLink>
             <NavLink to="/About" className="nav-item nav-link px-4" style={{ColorChange:"white"}} >About</NavLink>
+            <NavLink to="/ContactUs" className="nav-item nav-link px-4" > Contact Us</NavLink>
            
           </Nav>
           <button onClick={props.onShowCart} className="btn btn-secondary btn-lg active navbar-nav nav-link px-4 border-primary border border-3 text-primary"  >Cart</button> 
           <span className='text-info'>{quantity}</span>
-          {console.log('this is quantity',quantity)}
         </Navbar.Collapse>
             
       </Container>
