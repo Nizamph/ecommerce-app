@@ -1,0 +1,15 @@
+.product-box {
+margin-top: 100px;
+}
+
+
+.images-pr img {
+  width: 200px;
+  height: 200px;
+  margin: 10px;
+  
+}
+
+.images-pr img:hover {
+  transform: scale(1.2);
+}

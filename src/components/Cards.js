@@ -1,7 +1,7 @@
 import  React , {useContext} from 'react'
 import CartContext from '../Store/cart-context';
 import { Card} from 'react-bootstrap';
-
+import { Link } from 'react-router-dom';
 function Cards(props) {
 
   const cartCtx = useContext(CartContext)
@@ -25,7 +25,9 @@ function Cards(props) {
        <Card.Title className='text-center pt-3'>
                {props.title}
         </Card.Title>
+        <Link to={`/ProductList/${props.id}`} >
           <Card.Img src={props.img} className='img-top img-fluid'></Card.Img>
+          </Link>
           <Card.Body>
             <Card.Text>
               {`$${props.price}`}

@@ -7,6 +7,10 @@ import About from "./pages/About";
 import { Route } from 'react-router-dom'
 import Store from "./pages/Store";
 import ContactUs from "./pages/ContactUs";
+import ProductList from "./pages/ProductList";
+
+
+
 
 function App() {
   const productsArr = [
@@ -102,6 +106,9 @@ function App() {
      </Route>
      <Route path="/ContactUs">
       <ContactUs onContactList={contactList}/>
+     </Route>
+     <Route path="/ProductList/:ProductId" >
+      <ProductList/>
      </Route>
     {cartIsShown && <Cart onhideCart={hideCartHandler} products={productsArr}/>}
     </CartProvider>
