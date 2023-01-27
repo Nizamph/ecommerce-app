@@ -9,7 +9,6 @@ const Cart = (props) => {
     cartCtx.removeItem(product)
   }
   const cartlList = cartCtx.items.map((product) => {
-
     return(
       
       <section className="container" style={{display: "block"}}>

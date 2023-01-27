@@ -1,7 +1,11 @@
 import React from 'react'
+import { useContext } from 'react'
 import './About.css'
 import { BsYoutube,BsFacebook,BsSpotify } from 'react-icons/bs'
+import CartContext from '../Store/cart-context'
 function About() {
+  const authCtx = useContext(CartContext)
+ console.log('from about page',authCtx.isLoggedIn)
   return (
     <React.Fragment>
     <div className='row' >

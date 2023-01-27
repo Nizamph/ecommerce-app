@@ -53,7 +53,7 @@ const ProductList = () => {
    <div className='images-pr'>
    <img src='/images/m3-1.png' alt=''></img>
    <img src='/images/m3-2.png' alt=''></img>
-   <img src='/images/m3-3.png' alt=''></img>
+   <img src='/images/m3-2.png' alt=''></img>
    <img src='/images/m3-4.png' alt=''></img>
    </div>
    <button className='text-white bg-dark rounded border pt-3 pb-3 ' style={{marginLeft:"100px",marginTop:"40px",paddingRight:"60px",paddingLeft:"60px"}}>Order Now</button>

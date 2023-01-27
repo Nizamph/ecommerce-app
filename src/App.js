@@ -2,12 +2,16 @@ import Home from "./pages/Home";
 import Cart from "./components/cart/Cart";
 import Navigation from "./components/Navbar";
 import CartProvider from "./Store/CartProvider";
-import {useState} from 'react'
+import React, {useState,useContext} from 'react'
 import About from "./pages/About";
 import { Route } from 'react-router-dom'
+import { Switch,Redirect } from 'react-router-dom'
 import Store from "./pages/Store";
 import ContactUs from "./pages/ContactUs";
 import ProductList from "./pages/ProductList";
+import AuthPage from "./pages/AuthPage";
+import CartContext from "./Store/cart-context";
+
 
 
 
@@ -70,7 +74,7 @@ function App() {
     ]
 
     const[cartIsShown,setShowCart] = useState(false)
-    
+ 
     const showCartHandler = () => {
       setShowCart(true)
     }
@@ -90,29 +94,44 @@ function App() {
        const data = await response.json()
        console.log(data)
     }
+
+
+    const authCtx = useContext(CartContext)
+    const loggedIn = authCtx.isLoggedIn
+
+    console.log('this is from the app componenet', loggedIn)
   return (
-    <div>
+ 
       
-    <CartProvider>
-    <Navigation onShowCart={showCartHandler}/> 
+    <React.Fragment>
+    <Navigation onShowCart={showCartHandler}/>
+    <Switch> 
     <Route path="/About">
       <About/>
      </Route>
      <Route path="/Store">
-     <Store onShowCart={showCartHandler} products={productsArr} />
+      {loggedIn  &&  <Store onShowCart={showCartHandler} products={productsArr} />}
+      {!loggedIn &&  <Redirect to="/auth"/>}
      </Route>
-     <Route path="/Home">
+     <Route exact path="/">
       <Home/>
      </Route>
      <Route path="/ContactUs">
       <ContactUs onContactList={contactList}/>
      </Route>
      <Route path="/ProductList/:ProductId" >
-      <ProductList/>
+     <ProductList/>
      </Route>
+     <Route path="/auth">
+      <AuthPage/>
+     </Route>
+     <Route path="*" >
+      <Redirect to="/"/>
+     </Route>
+     </Switch>
     {cartIsShown && <Cart onhideCart={hideCartHandler} products={productsArr}/>}
-    </CartProvider>
-    </div>
+    </React.Fragment>
+
   );
 }
 
