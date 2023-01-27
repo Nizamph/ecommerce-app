@@ -31,9 +31,9 @@ function Navigation(props) {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="navbar-nav mx-auto navbar-brand">
             <NavLink to="/" className="nav-item nav-link px-4 " >Home</NavLink>
-            {LoggedIn && (
+           
               <NavLink to="/Store" className="nav-item nav-link px-4" >Store</NavLink>
-            )}
+            
             <NavLink to="/About" className="nav-item nav-link px-4" style={{ColorChange:"white"}} >About</NavLink>
             <NavLink to="/ContactUs" className="nav-item nav-link px-4" > Contact Us</NavLink>
             {!LoggedIn && (
