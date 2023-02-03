@@ -1,4 +1,4 @@
-import Cards from "../components/Cards"
+import Cards from "../components/Cards";
 import { Button } from "react-bootstrap"
 import {BsYoutube,BsSpotify,BsFacebook } from "react-icons/bs";
 const Store = (props) => {
@@ -14,11 +14,13 @@ const Store = (props) => {
          {props.products.map((item) => {
     return(
       <Cards
+      key={item.id}
        id={item.id}
        title={item.title}
        img={item.imageUrl}  
        price={item.price}
        quantity={item.quantity}
+       item = {item}
       /> 
     )
      

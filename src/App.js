@@ -1,7 +1,6 @@
 import Home from "./pages/Home";
 import Cart from "./components/cart/Cart";
 import Navigation from "./components/Navbar";
-import CartProvider from "./Store/CartProvider";
 import React, {useState,useContext} from 'react'
 import About from "./pages/About";
 import { Route } from 'react-router-dom'
@@ -99,7 +98,6 @@ function App() {
     const authCtx = useContext(CartContext)
     const loggedIn = authCtx.isLoggedIn
 
-    console.log('this is from the app componenet', loggedIn)
   return (
  
       
@@ -129,7 +127,7 @@ function App() {
       <Redirect to="/"/>
      </Route>
      </Switch>
-    {cartIsShown && <Cart onhideCart={hideCartHandler} products={productsArr}/>}
+    {cartIsShown && <Cart onhideCart={hideCartHandler} />}
     </React.Fragment>
 
   );

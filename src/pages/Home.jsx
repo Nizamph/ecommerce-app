@@ -9,51 +9,51 @@ const  Home = () => {
     
       <h1 style={{fontSize:"100px",color:"dark",marginTop:"45px"}} className='p-4 text-center '>The Generics</h1>
         <button className='play-music'>Get Our Latest Album</button>
-        <button class="play-button">►</button>
+        <button className="play-button">►</button>
     </header>
     
     <Container className=' col-12' style={{padding:"80px"}}>
     <section>
     <h2 className='text-center pb-4 ' style={{fontFamily:"serif"}}>TOURS</h2>
-            <div class="tour-item ">
-                <span class="tour-date">JUL16</span>
-                <span class="tour-place">DETROIT, MI</span>
-                <span class="tour-spec-place">DTE ENERGY MUSIC THEATRE</span>
-                <button class="buy-btn">BUY TICKETS</button>
+            <div className="tour-item ">
+                <span className="tour-date">JUL16</span>
+                <span className="tour-place">DETROIT, MI</span>
+                <span className="tour-spec-place">DTE ENERGY MUSIC THEATRE</span>
+                <button className="buy-btn">BUY TICKETS</button>
             </div>
-            <div class="tour-item">
-                <span class="tour-date">JUL19</span>
-                <span class="tour-place">
+            <div className="tour-item">
+                <span className="tour-date">JUL19</span>
+                <span className="tour-place">
 TORONTO,ON</span>
-                <span class="tour-spec-place">BUDWEISER STAGE</span>
-                <button class="buy-btn">BUY TICKETS</button>
+                <span className="tour-spec-place">BUDWEISER STAGE</span>
+                <button className="buy-btn">BUY TICKETS</button>
             </div>
-            <div class="tour-item">
-                <span class="tour-date">JUL 22</span>
-                <span class="tour-place">BRISTOW, VA</span>
-                <span class="tour-spec-place">
+            <div className="tour-item">
+                <span className="tour-date">JUL 22</span>
+                <span className="tour-place">BRISTOW, VA</span>
+                <span className="tour-spec-place">
 JIGGY LUBE LIVE</span>
-                <button class="buy-btn">BUY TICKETS</button>
+                <button className="buy-btn">BUY TICKETS</button>
             </div>
-            <div class="tour-item">
-                <span class="tour-date">JUL 29</span>
-                <span class="tour-place">PHOENIX, AZ</span>
-                <span class="tour-spec-place">AK-CHIN PAVILION</span>
-                <button class="buy-btn">BUY TICKETS</button>
+            <div className="tour-item">
+                <span className="tour-date">JUL 29</span>
+                <span className="tour-place">PHOENIX, AZ</span>
+                <span className="tour-spec-place">AK-CHIN PAVILION</span>
+                <button className="buy-btn">BUY TICKETS</button>
             </div>
-            <div class="tour-item">
-                <span class="tour-date">AUG 2</span>
-                <span class="tour-place">
+            <div className="tour-item">
+                <span className="tour-date">AUG 2</span>
+                <span className="tour-place">
 LAS VEGAS, NV</span>
-                <span class="tour-spec-place">
+                <span className="tour-spec-place">
 T-MOBILE ARENA</span>
-                <button class="buy-btn">BUY TICKETS</button>
+                <button className="buy-btn">BUY TICKETS</button>
             </div>
-            <div class="tour-item">
-                <span class="tour-date">AUG 7</span>
-                <span class="tour-place">CONCORD, CA</span>
-                <span class="tour-spec-place">CONCORD PAVILION</span>
-                <button class="buy-btn">BUY TICKETS</button>
+            <div className="tour-item">
+                <span className="tour-date">AUG 7</span>
+                <span className="tour-place">CONCORD, CA</span>
+                <span className="tour-spec-place">CONCORD PAVILION</span>
+                <button className="buy-btn">BUY TICKETS</button>
             </div>
     </section>
     </Container>

@@ -9,7 +9,7 @@ import { Button } from 'react-bootstrap';
 
 function Navigation(props) {
   const cartCtx = useContext(CartContext)
-  console.log('this is from the navbar',cartCtx)
+ 
   let quantity = 0;
   cartCtx.items.forEach(item => {
     quantity = quantity + Number(item.quantity)
@@ -31,9 +31,7 @@ function Navigation(props) {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="navbar-nav mx-auto navbar-brand">
             <NavLink to="/" className="nav-item nav-link px-4 " >Home</NavLink>
-           
               <NavLink to="/Store" className="nav-item nav-link px-4" >Store</NavLink>
-            
             <NavLink to="/About" className="nav-item nav-link px-4" style={{ColorChange:"white"}} >About</NavLink>
             <NavLink to="/ContactUs" className="nav-item nav-link px-4" > Contact Us</NavLink>
             {!LoggedIn && (
@@ -46,7 +44,7 @@ function Navigation(props) {
           </Nav>
           {LoggedIn && (
                <div>
-              <button onClick={props.onShowCart} className="btn btn-secondary btn-lg active navbar-nav nav-link px-4 border-primary border border-3 text-primary"  >Cart</button> 
+              <button onClick={props.onShowCart} className="btn btn-secondary btn-lg active navbar-nav nav-link px-4 border-primary border border-3 text-primary">Cart</button> 
               <span className='text-info'>{quantity}</span>
               </div>
           )}
