@@ -2,8 +2,8 @@ import React from "react";
 
 
 const CartContext = React.createContext({
-  Items: [],
-  addItems:(item) => {},
+  items: [],
+  addItem:(item) => {},
   removeItem:(id) => {},
   token:'',
   isLoggedIn:false,
@@ -11,6 +11,8 @@ const CartContext = React.createContext({
   logout: () => {},
   email:() => {},
   emailId:'',
+  crud: () => {},
+  crudItem: []
 })
 
 export default CartContext;

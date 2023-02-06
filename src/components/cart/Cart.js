@@ -3,10 +3,14 @@ import ModalOverlay from "../UI/Modal";
 import './Cart.css'
 import { useContext} from "react";
 import CartContext from "../../Store/cart-context";
+import axios from "axios";
 const Cart = (props) => {
   const cartCtx = useContext(CartContext)
+  
+
   const removeItemHandler = (product) => {
-      cartCtx.removeItem(product)
+     cartCtx.removeItem(product)
+ 
   }
 
           
@@ -18,11 +22,9 @@ const Cart = (props) => {
 
 
   
-   console.log('crud items',cartCtx.item)
   const cartlList = (
     <div className="cart-items">
       {
-  
     cartCtx.items.map((product) => {  
     return(
       <section className="container" style={{display: "block"}} key={product.id}>

@@ -2,6 +2,7 @@ import  React , {useContext} from 'react'
 import CartContext from '../Store/cart-context';
 import { Card, Button} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 function Cards(props) {
 
   const cartCtx = useContext(CartContext)
@@ -16,6 +17,7 @@ function Cards(props) {
         price:props.price,
         quantity:props.quantity
       })
+
   }
 
   return (
