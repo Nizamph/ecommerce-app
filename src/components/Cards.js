@@ -17,7 +17,7 @@ function Cards(props) {
         price:props.price,
         quantity:props.quantity
       })
-
+  
   }
 
   return (

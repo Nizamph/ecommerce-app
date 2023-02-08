@@ -1,7 +1,7 @@
 
 import ModalOverlay from "../UI/Modal";
 import './Cart.css'
-import { useContext} from "react";
+import { useContext, useEffect} from "react";
 import CartContext from "../../Store/cart-context";
 import axios from "axios";
 const Cart = (props) => {
@@ -13,7 +13,7 @@ const Cart = (props) => {
  
   }
 
-          
+  
 
 
 
@@ -30,15 +30,15 @@ const Cart = (props) => {
       <section className="container" style={{display: "block"}} key={product.id}>
 
         <div className="cart-row">
-          <span className="cart-item cart-column">
+          <span className="cart-item cart-column ms-2">
           <img src={product.imageUrl} alt={product.title} className="cart-img"></img>
-          <span>{product.title}</span>
+          <span  style={{fontWeight:"bold"}}>{product.title}</span>
           </span>
-          <span className="cart-price cart-column">${product.price.toFixed(2)}
+          <span className="cart-price cart-column" style={{marginLeft:"53px",fontWeight:"bold"}}>${product.price.toFixed(2)}
           <div className="ms-3">x{product.quantity}</div></span>
           <span className="cart-quantity cart-column">
 
-            <button className="bg-dark p-2 border border-none text-white rounded-top rounded-bottom" onClick={()=>removeItemHandler(product)} >REMOVE</button>
+            <button className="bg-dark p-2 border border-none text-white rounded-top rounded-bottom " style={{marginLeft:"49px"}} onClick={()=>removeItemHandler(product)} >REMOVE</button>
           </span>
         </div>
      
@@ -63,7 +63,6 @@ const Cart = (props) => {
         <div className="cart-row cart-header">
           <span className= "cart-item cart-column">ITEM</span>
           <span className="cart-price cart-column">PRICE</span>
-          <span className="cart-quantity cart-column">QUANTITY</span>
         </div>
     {cartlList}
     <div className="total">

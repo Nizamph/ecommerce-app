@@ -9,7 +9,7 @@ const CartContext = React.createContext({
   isLoggedIn:false,
   login: (token)=> {},
   logout: () => {},
-  email:() => {},
+  emailAdd:() => {},
   emailId:'',
   crud: () => {},
   crudItem: []
