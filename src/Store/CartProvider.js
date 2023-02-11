@@ -1,10 +1,11 @@
 import CartContext from "./cart-context"
 import React,{useEffect, useState,} from "react";
 import axios from "axios";
+
 let tempid = 0
 const CartProvider = (props) => {
     const [addItems, setAddItems] = useState([]);
-
+    
 
 
   const addItemToCartHandler = (item) => {
@@ -20,15 +21,16 @@ const CartProvider = (props) => {
           tempid = product._id;  
           console.log('this is product id',product._id)   
     product.quantity = Number(product.quantity) + Number(item.quantity);
-    item.quantity = Number(product.quantity) + Number(item.quantity);
+    item.quantity = Number(product.quantity) + Number(item.quantity - 1);
         }
     newCartItem = item
-      })
+      })  
       if (hasItem) {
         console.log('inside if')
          setAddItems(cartItems);
-         console.log('cart items',cartItems)
-          axios.put(`https://crudcrud.com/api/9157a1793e174bdd8837f4e94adc4d75/cart/${tempid}`,newCartItem)
+         console.log('add items',addItems)
+        //  console.log('cart items',cartItems)
+          axios.put(`https://crudcrud.com/api/e6736da0008c4fac8f77d9073b6924f6/cart${email}/${tempid}`,newCartItem)
           .then((res) => {
             console.log('updated successfully',res)
           })
@@ -40,7 +42,7 @@ const CartProvider = (props) => {
         // setAddItems((prevItems) => {  
         //   return [...prevItems, item]; 
         // });
-        axios.post(`https://crudcrud.com/api/9157a1793e174bdd8837f4e94adc4d75/cart`,item)
+        axios.post(`https://crudcrud.com/api/e6736da0008c4fac8f77d9073b6924f6/cart${email}`,item)
         .then((res) => {
           console.log('posted successfully',res)
           setAddItems([...addItems,res.data])
@@ -53,13 +55,15 @@ const CartProvider = (props) => {
 
 
  useEffect(() => {
-  axios.get(`https://crudcrud.com/api/9157a1793e174bdd8837f4e94adc4d75/cart`).then((res) => {
+  const storedEmail = localStorage.getItem('email')
+  setEmail(storedEmail)
+  axios.get(`https://crudcrud.com/api/e6736da0008c4fac8f77d9073b6924f6/cart${storedEmail}`).then((res) => {
     console.log(res)
     setAddItems(res.data)
   }).catch((err) => {
     console.log(err)
   })
-},[]) 
+},[localStorage.getItem('email')]) 
 
   const removeItemfromCartHandler = (item) => {
     console.log('delete id ',item._id)
@@ -70,7 +74,7 @@ const CartProvider = (props) => {
           setAddItems(cartItems);
         }
       });
-      axios.delete(`https://crudcrud.com/api/9157a1793e174bdd8837f4e94adc4d75/cart/${item._id}`)
+      axios.delete(`https://crudcrud.com/api/e6736da0008c4fac8f77d9073b6924f6/cart${email}/${item._id}`)
       .then((res) => {
         console.log('deleted successfully',res)
       }).catch((err) => {
@@ -87,19 +91,36 @@ const CartProvider = (props) => {
    
   }
 
+  useEffect(() => {
+    if(!token) {
+      return
+    }else {
+      setTimeout(() => {
+        localStorage.removeItem('token')
+        setToken(null)
+      },5 * 60 * 1000)
+    }
+  },[token])
+
   const logoutHandler = () => {
     setToken(null)
     localStorage.removeItem('token')
+    localStorage.removeItem('email')
   }
 
   const userIsLoggedIn = !!token
+   console.log(userIsLoggedIn)
+
 
   const [email,setEmail] = useState('');
   const emailHandler = (email) => {
    let cleanEmail = email.replace(/[^a-zA-Z0-9]/g,'')
     setEmail(cleanEmail)
+    localStorage.setItem('email',cleanEmail)
   }
   
+  console.log('this is email',email)
+
 
 
   const cartContext = {
@@ -114,6 +135,7 @@ const CartProvider = (props) => {
     emailId:email,
   };
   
+
   return (
     <CartContext.Provider value={cartContext}>
       {props.children}

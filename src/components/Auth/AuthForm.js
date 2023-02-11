@@ -53,7 +53,7 @@ const AuthForm = () => {
     event.preventDefault()
     const enteredEmail = emailInputRef.current.value;
     const enteredPassword = passwordInputRef.current.value;
-    authCtx.emailAdd(enteredEmail)
+    authCtx.email(enteredEmail)
     console.log('entered email',enteredEmail)
     const payLoad = {
       email:enteredEmail,
