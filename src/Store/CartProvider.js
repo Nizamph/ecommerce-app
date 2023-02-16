@@ -30,7 +30,7 @@ const CartProvider = (props) => {
          setAddItems(cartItems);
          console.log('add items',addItems)
         //  console.log('cart items',cartItems)
-          axios.put(`https://crudcrud.com/api/e6736da0008c4fac8f77d9073b6924f6/cart${email}/${tempid}`,newCartItem)
+          axios.put(`https://crudcrud.com/api/a04eedd9eedd4e0b924242bae111ca7f/cart${email}/${tempid}`,newCartItem)
           .then((res) => {
             console.log('updated successfully',res)
           })
@@ -42,7 +42,7 @@ const CartProvider = (props) => {
         // setAddItems((prevItems) => {  
         //   return [...prevItems, item]; 
         // });
-        axios.post(`https://crudcrud.com/api/e6736da0008c4fac8f77d9073b6924f6/cart${email}`,item)
+        axios.post(`https://crudcrud.com/api/a04eedd9eedd4e0b924242bae111ca7f/cart${email}`,item)
         .then((res) => {
           console.log('posted successfully',res)
           setAddItems([...addItems,res.data])
@@ -57,7 +57,7 @@ const CartProvider = (props) => {
  useEffect(() => {
   const storedEmail = localStorage.getItem('email')
   setEmail(storedEmail)
-  axios.get(`https://crudcrud.com/api/e6736da0008c4fac8f77d9073b6924f6/cart${storedEmail}`).then((res) => {
+  axios.get(`https://crudcrud.com/api/a04eedd9eedd4e0b924242bae111ca7f/cart${storedEmail}`).then((res) => {
     console.log(res)
     setAddItems(res.data)
   }).catch((err) => {
@@ -74,7 +74,7 @@ const CartProvider = (props) => {
           setAddItems(cartItems);
         }
       });
-      axios.delete(`https://crudcrud.com/api/e6736da0008c4fac8f77d9073b6924f6/cart${email}/${item._id}`)
+      axios.delete(`https://crudcrud.com/api/a04eedd9eedd4e0b924242bae111ca7f/cart${email}/${item._id}`)
       .then((res) => {
         console.log('deleted successfully',res)
       }).catch((err) => {

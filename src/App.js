@@ -1,28 +1,25 @@
-// import Home from "./pages/Home";
-// import Cart from "./components/cart/Cart";
-// import Navigation from "./components/Navbar";
-// import React, {useState,useContext} from 'react'
-// import About from "./pages/About";
-// import { Route } from 'react-router-dom'
-// import { Switch,Redirect } from 'react-router-dom'
-// import  { lazy, Suspense } from 'react';
-// import Store from "./pages/Store";
-// import ContactUs from "./pages/ContactUs";
-// import ProductList from "./pages/ProductList";
-// import AuthPage from "./pages/AuthPage";
+import Home from "./pages/Home";
+import Cart from "./components/cart/Cart";
+import Navigation from "./components/Navbar";
 import React, {useState,useContext} from 'react'
+import About from "./pages/About";
 import { Route } from 'react-router-dom'
-import { Switch,Redirect } from 'react-router-dom'
 import  { lazy, Suspense } from 'react';
+import Store from "./pages/Store";
+import ContactUs from "./pages/ContactUs";
+import ProductList from "./pages/ProductList";
+import AuthPage from "./pages/AuthPage";
+import { Switch,Redirect } from 'react-router-dom'
 import CartContext from "./Store/cart-context";
-const Home = lazy(() => import('./pages/Home'));
-const Cart = lazy(() => import('./components/cart/Cart'));
-const Navigation = lazy(() => import('./components/Navbar'));
-const About = lazy(() => import('./pages/About'));
-const Store = lazy(() => import('./pages/Store'));
-const ContactUs = lazy(() => import('./pages/ContactUs'));
-const ProductList = lazy(() => import('./pages/ProductList'));
-const AuthPage = lazy(() => import('./pages/AuthPage'));
+// import  { lazy, Suspense } from 'react';
+// const Home = lazy(() => import('./pages/Home'));
+// const Cart = lazy(() => import('./components/cart/Cart'));
+// const Navigation = lazy(() => import('./components/Navbar'));
+// const About = lazy(() => import('./pages/About'));
+// const Store = lazy(() => import('./pages/Store'));
+// const ContactUs = lazy(() => import('./pages/ContactUs'));
+// const ProductList = lazy(() => import('./pages/ProductList'));
+// const AuthPage = lazy(() => import('./pages/AuthPage'));
 
 
 
@@ -114,7 +111,7 @@ function App() {
  
       
     <React.Fragment>
-       <Suspense fallback={<div>Loading...</div>}>
+    
     <Navigation onShowCart={showCartHandler}/>
     <Switch> 
     <Route path="/About">
@@ -140,7 +137,6 @@ function App() {
       <Redirect to="/"/>
      </Route>
      </Switch>
-     </Suspense>
     {cartIsShown && <Cart onhideCart={hideCartHandler} />}
     </React.Fragment>
 
