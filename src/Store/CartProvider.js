@@ -7,10 +7,10 @@ const CartProvider = (props) => {
     const [addItems, setAddItems] = useState([]);
     
 
-
+  console.log('additem',addItems)
   const addItemToCartHandler = (item) => {
     let newCartItem = {}
-
+     console.log('this is item',item)
     console.log('this is item id',item._id)
       let cartItems = [...addItems]
       let hasItem = false;
@@ -20,17 +20,18 @@ const CartProvider = (props) => {
           hasItem = true;
           tempid = product._id;  
           console.log('this is product id',product._id)   
-    product.quantity = Number(product.quantity) + Number(item.quantity);
-    item.quantity = Number(product.quantity) + Number(item.quantity - 1);
+    product.quantity = Number(product.quantity) + Number(item.quantity);//local state product quantity
+    item.quantity = Number(product.quantity);//product quantity for the backend
         }
     newCartItem = item
+    console.log('newCartItem',newCartItem)
       })  
       if (hasItem) {
         console.log('inside if')
          setAddItems(cartItems);
          console.log('add items',addItems)
         //  console.log('cart items',cartItems)
-          axios.put(`https://crudcrud.com/api/a04eedd9eedd4e0b924242bae111ca7f/cart${email}/${tempid}`,newCartItem)
+          axios.put(`https://crudcrud.com/api/1d8f09395a874e21a0a67861beaa9e73/cart${email}/${tempid}`,newCartItem)
           .then((res) => {
             console.log('updated successfully',res)
           })
@@ -42,7 +43,7 @@ const CartProvider = (props) => {
         // setAddItems((prevItems) => {  
         //   return [...prevItems, item]; 
         // });
-        axios.post(`https://crudcrud.com/api/a04eedd9eedd4e0b924242bae111ca7f/cart${email}`,item)
+        axios.post(`https://crudcrud.com/api/1d8f09395a874e21a0a67861beaa9e73/cart${email}`,item)
         .then((res) => {
           console.log('posted successfully',res)
           setAddItems([...addItems,res.data])
@@ -57,7 +58,7 @@ const CartProvider = (props) => {
  useEffect(() => {
   const storedEmail = localStorage.getItem('email')
   setEmail(storedEmail)
-  axios.get(`https://crudcrud.com/api/a04eedd9eedd4e0b924242bae111ca7f/cart${storedEmail}`).then((res) => {
+  axios.get(`https://crudcrud.com/api/1d8f09395a874e21a0a67861beaa9e73/cart${storedEmail}`).then((res) => {
     console.log(res)
     setAddItems(res.data)
   }).catch((err) => {
@@ -74,7 +75,7 @@ const CartProvider = (props) => {
           setAddItems(cartItems);
         }
       });
-      axios.delete(`https://crudcrud.com/api/a04eedd9eedd4e0b924242bae111ca7f/cart${email}/${item._id}`)
+      axios.delete(`https://crudcrud.com/api/1d8f09395a874e21a0a67861beaa9e73/cart${email}/${item._id}`)
       .then((res) => {
         console.log('deleted successfully',res)
       }).catch((err) => {
